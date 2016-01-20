@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="NotoSans-Bold.ttf">
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+            <string>NotoSans-Bold</string>
+        </mutableArray>
+        <mutableArray key="NotoSans-Regular.ttf">
+            <string>NotoSans</string>
+            <string>NotoSans</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="goviapps_firebase_app_test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +29,186 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUs-4k-xi2" customClass="MaterialDesign" customModule="goviapps_firebase_app_test" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="security_key" translatesAutoresizingMaskIntoConstraints="NO" id="4mi-ox-55U" customClass="MaterialDesignImageView" customModule="goviapps_firebase_app_test" customModuleProvider="target">
+                                        <rect key="frame" x="535" y="25" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="ehg-Xk-QQT"/>
+                                            <constraint firstAttribute="height" constant="50" id="kcV-La-E4k"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Signing In Saves Your Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kH6-4k-h6C">
+                                        <rect key="frame" x="20" y="35" width="274" height="25"/>
+                                        <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="kH6-4k-h6C" firstAttribute="top" secondItem="KUs-4k-xi2" secondAttribute="top" constant="35" id="5uu-qF-kcO"/>
+                                    <constraint firstAttribute="width" constant="600" id="6Tx-jP-cn7"/>
+                                    <constraint firstAttribute="trailing" secondItem="4mi-ox-55U" secondAttribute="trailing" constant="15" id="Atc-7i-kiD"/>
+                                    <constraint firstItem="4mi-ox-55U" firstAttribute="top" secondItem="KUs-4k-xi2" secondAttribute="top" constant="25" id="Yfh-bX-Mog"/>
+                                    <constraint firstAttribute="height" constant="120" id="hAS-oy-IDb"/>
+                                    <constraint firstItem="kH6-4k-h6C" firstAttribute="leading" secondItem="KUs-4k-xi2" secondAttribute="leading" constant="20" id="hAe-2b-pvh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZX-vM-U6i" customClass="MaterialDesign" customModule="goviapps_firebase_app_test" customModuleProvider="target">
+                                <rect key="frame" x="20" y="70" width="560" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbw-4y-FtJ" customClass="MaterialDesignButton" customModule="goviapps_firebase_app_test" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="30" width="520" height="40"/>
+                                        <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Kr8-ao-s0T"/>
+                                            <constraint firstAttribute="width" constant="193" id="NKZ-1A-5BW"/>
+                                            <constraint firstAttribute="width" constant="200" id="tH2-QL-2uC"/>
+                                            <constraint firstAttribute="height" constant="40" id="z3f-4t-DA8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
+                                        <state key="normal" title="Sign In With Facebook">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Kr8-ao-s0T"/>
+                                                <exclude reference="NKZ-1A-5BW"/>
+                                                <exclude reference="tH2-QL-2uC"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="0sB-At-XeO"/>
+                                    <constraint firstItem="gbw-4y-FtJ" firstAttribute="centerX" secondItem="mZX-vM-U6i" secondAttribute="centerX" id="F4s-97-4EL"/>
+                                    <constraint firstAttribute="bottom" secondItem="gbw-4y-FtJ" secondAttribute="bottom" constant="70" id="Fb6-Tc-Rcp"/>
+                                    <constraint firstItem="gbw-4y-FtJ" firstAttribute="leading" secondItem="mZX-vM-U6i" secondAttribute="leading" constant="20" id="Fqw-6n-DwP"/>
+                                    <constraint firstAttribute="bottom" secondItem="gbw-4y-FtJ" secondAttribute="bottom" constant="30" id="H6r-qb-zYb"/>
+                                    <constraint firstAttribute="bottom" secondItem="gbw-4y-FtJ" secondAttribute="bottom" constant="30" id="JCH-b9-EBp"/>
+                                    <constraint firstItem="gbw-4y-FtJ" firstAttribute="centerY" secondItem="mZX-vM-U6i" secondAttribute="centerY" id="NlO-98-4VS"/>
+                                    <constraint firstItem="gbw-4y-FtJ" firstAttribute="top" secondItem="mZX-vM-U6i" secondAttribute="top" constant="70" id="R4P-Vm-2Eg"/>
+                                    <constraint firstAttribute="trailing" secondItem="gbw-4y-FtJ" secondAttribute="trailing" constant="20" id="ShN-su-e5b"/>
+                                    <constraint firstItem="gbw-4y-FtJ" firstAttribute="leading" secondItem="mZX-vM-U6i" secondAttribute="leading" constant="20" id="X1Z-mV-dWi"/>
+                                    <constraint firstItem="gbw-4y-FtJ" firstAttribute="centerX" secondItem="mZX-vM-U6i" secondAttribute="centerX" id="hP2-wA-fYL"/>
+                                    <constraint firstItem="gbw-4y-FtJ" firstAttribute="top" secondItem="mZX-vM-U6i" secondAttribute="top" constant="30" id="iAV-mf-EGG"/>
+                                    <constraint firstItem="gbw-4y-FtJ" firstAttribute="top" secondItem="mZX-vM-U6i" secondAttribute="top" constant="30" id="lk7-5U-EvY"/>
+                                    <constraint firstAttribute="trailing" secondItem="gbw-4y-FtJ" secondAttribute="trailing" constant="20" id="uGG-IR-mxU"/>
+                                    <constraint firstAttribute="trailing" secondItem="gbw-4y-FtJ" secondAttribute="trailing" constant="20" id="yQr-Z8-ehX"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Fb6-Tc-Rcp"/>
+                                        <exclude reference="JCH-b9-EBp"/>
+                                        <exclude reference="R4P-Vm-2Eg"/>
+                                        <exclude reference="X1Z-mV-dWi"/>
+                                        <exclude reference="hP2-wA-fYL"/>
+                                        <exclude reference="lk7-5U-EvY"/>
+                                        <exclude reference="uGG-IR-mxU"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHP-tM-kPc" customClass="MaterialDesign" customModule="goviapps_firebase_app_test" customModuleProvider="target">
+                                <rect key="frame" x="20" y="194" width="560" height="386"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OOY-PI-9yP" customClass="MaterialDesignTextField" customModule="goviapps_firebase_app_test" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="64" width="520" height="30"/>
+                                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="kWD-5p-Kza"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sign In or Sign Up With Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zp-Cx-Gj1">
+                                        <rect key="frame" x="15" y="20" width="218" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="179" id="B1e-uM-uhS"/>
+                                            <constraint firstAttribute="height" constant="24" id="i1r-BZ-vPC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="B1e-uM-uhS"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbi-xy-6lt" customClass="MaterialDesignTextField" customModule="goviapps_firebase_app_test" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="109" width="520" height="30"/>
+                                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="rR4-FI-sbM"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjg-ea-1yX" customClass="MaterialDesignButton" customModule="goviapps_firebase_app_test" customModuleProvider="target">
+                                        <rect key="frame" x="158" y="189" width="244" height="40"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.30588235289999999" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="2U6-fo-PTp"/>
+                                            <constraint firstAttribute="width" constant="193" id="E5X-bM-aqZ"/>
+                                            <constraint firstAttribute="width" constant="244" id="EH3-7C-NIf"/>
+                                            <constraint firstAttribute="height" constant="40" id="Tof-GN-gtW"/>
+                                            <constraint firstAttribute="height" constant="40" id="iAj-iH-heg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
+                                        <state key="normal" title="Login / Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2U6-fo-PTp"/>
+                                                <exclude reference="E5X-bM-aqZ"/>
+                                                <exclude reference="Tof-GN-gtW"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="4zp-Cx-Gj1" firstAttribute="leading" secondItem="lHP-tM-kPc" secondAttribute="leading" constant="20" id="0Sh-yO-w0c"/>
+                                    <constraint firstItem="kjg-ea-1yX" firstAttribute="top" secondItem="Rbi-xy-6lt" secondAttribute="bottom" constant="50" id="FVg-cL-nU7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rbi-xy-6lt" secondAttribute="trailing" constant="20" id="NTc-NF-JtS"/>
+                                    <constraint firstItem="OOY-PI-9yP" firstAttribute="leading" secondItem="lHP-tM-kPc" secondAttribute="leading" constant="20" id="ONm-8H-zYs"/>
+                                    <constraint firstItem="Rbi-xy-6lt" firstAttribute="top" secondItem="OOY-PI-9yP" secondAttribute="bottom" constant="15" id="XCM-R3-7CI"/>
+                                    <constraint firstItem="OOY-PI-9yP" firstAttribute="top" secondItem="4zp-Cx-Gj1" secondAttribute="bottom" constant="20" id="aDY-yF-YoL"/>
+                                    <constraint firstAttribute="trailing" secondItem="OOY-PI-9yP" secondAttribute="trailing" constant="20" id="f0Z-XS-YUx"/>
+                                    <constraint firstItem="4zp-Cx-Gj1" firstAttribute="top" secondItem="lHP-tM-kPc" secondAttribute="top" constant="20" id="iY0-yR-8ix"/>
+                                    <constraint firstItem="Rbi-xy-6lt" firstAttribute="leading" secondItem="lHP-tM-kPc" secondAttribute="leading" constant="20" id="n6O-ve-B3h"/>
+                                    <constraint firstItem="kjg-ea-1yX" firstAttribute="centerX" secondItem="lHP-tM-kPc" secondAttribute="centerX" id="zol-QY-OKy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lHP-tM-kPc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5Wa-Th-eF7"/>
+                            <constraint firstAttribute="trailing" secondItem="KUs-4k-xi2" secondAttribute="trailing" id="9QI-em-iG8"/>
+                            <constraint firstItem="lHP-tM-kPc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="BKq-DI-Z9x"/>
+                            <constraint firstItem="mZX-vM-U6i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CZW-pr-fWx"/>
+                            <constraint firstItem="lHP-tM-kPc" firstAttribute="top" secondItem="mZX-vM-U6i" secondAttribute="bottom" constant="24" id="N8z-dt-lTf"/>
+                            <constraint firstItem="mZX-vM-U6i" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="YEP-t7-lGF"/>
+                            <constraint firstItem="mZX-vM-U6i" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="emt-UW-0mS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lHP-tM-kPc" secondAttribute="bottom" constant="20" id="fQf-TN-e6V"/>
+                            <constraint firstItem="KUs-4k-xi2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="shI-do-GmK"/>
+                            <constraint firstItem="KUs-4k-xi2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tMw-lp-jJe"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="322"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="security_key" width="96" height="96"/>
+    </resources>
 </document>
