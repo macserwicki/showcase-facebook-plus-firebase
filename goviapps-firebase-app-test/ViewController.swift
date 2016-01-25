@@ -61,6 +61,10 @@ class ViewController: UIViewController {
                                     print("Logged In! \(authData)")
                                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
                                     
+                                    //could do error handlign with authData.provider
+                                    let user = ["provider": authData.provider!, "test": "turkeydogetest"]
+                                    DataService.ds.createFirebaseUser(authData.uid, user: user)
+                                    
                                     self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                                     
                                 }
@@ -91,9 +95,16 @@ class ViewController: UIViewController {
                                 self.showErrorAlert("Could Not Create Account or Log In", message: "Please Try Again")
                             } else {
                                 //account made successfully, log in
-                                NSUserDefaults.standardUserDefaults().setValue([KEY_UID], forKey: KEY_UID)
+                                NSUserDefaults.standardUserDefaults().setValue(result[KEY_UID], forKey: KEY_UID)
                                 
-                                DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: nil)
+                                DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: {
+                                    err, authData in
+                                    
+                                    let user = ["provider": authData.provider!, "test": "turkeydogetest2"]
+                                    DataService.ds.createFirebaseUser(authData.uid, user: user)
+                                    
+                                    
+                                } )
                                 
                                     self.performSegueWithIdentifier (SEGUE_LOGGED_IN, sender: nil)
                                 

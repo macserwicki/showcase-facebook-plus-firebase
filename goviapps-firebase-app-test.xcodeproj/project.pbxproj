@@ -28,6 +28,7 @@
 		528EA32B1C518A7B007F9AD0 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528EA3281C518A7A007F9AD0 /* FBSDKLoginKit.framework */; };
 		528EA32D1C53439A007F9AD0 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA32C1C534399007F9AD0 /* FeedVC.swift */; };
 		528EA32F1C53450F007F9AD0 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EA32E1C53450F007F9AD0 /* PostCell.swift */; };
+		52CA6BF01C55927D004097B9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CA6BEF1C55927D004097B9 /* Post.swift */; };
 		A8DBC9C205E63B2365C8F670 /* Pods_goviapps_firebase_app_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A187B06A43798D98E71A98 /* Pods_goviapps_firebase_app_test.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		528EA3281C518A7A007F9AD0 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		528EA32C1C534399007F9AD0 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		528EA32E1C53450F007F9AD0 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		52CA6BEF1C55927D004097B9 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A3A187B06A43798D98E71A98 /* Pods_goviapps_firebase_app_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_goviapps_firebase_app_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74974788A56D1338F89973F /* Pods-goviapps-firebase-app-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-goviapps-firebase-app-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-goviapps-firebase-app-test/Pods-goviapps-firebase-app-test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +134,7 @@
 		528EA3091C4EC2FD007F9AD0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				52CA6BEF1C55927D004097B9 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				528EA32D1C53439A007F9AD0 /* FeedVC.swift in Sources */,
+				52CA6BF01C55927D004097B9 /* Post.swift in Sources */,
 				528EA2F91C4EC2E4007F9AD0 /* ViewController.swift in Sources */,
 				528EA3211C4F401B007F9AD0 /* MaterialDesignImageView.swift in Sources */,
 				528EA2F71C4EC2E4007F9AD0 /* AppDelegate.swift in Sources */,
