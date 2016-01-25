@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C00C246CEB83ED3B9E11BB05'
+               BlueprintIdentifier = '90916ABE874BC0F4634249D3'
                BlueprintName = 'Pods-goviapps-firebase-app-test'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_goviapps_firebase_app_test.framework'>

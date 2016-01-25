@@ -16,6 +16,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var posts = [Post]()
+   static var imageCache = NSCache()
     
     override func viewWillAppear(animated: Bool) {
         DataService.ds.REF_POSTS.observeEventType(.Value, withBlock: { snapshot in
@@ -69,7 +70,12 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as? PostCell {
-            cell.configureCell(post)
+          
+            var img: UIImage?
+            if let url = post.imageUrl {
+                img = FeedVC.imageCache.objectForKey(url) as? UIImage
+            }
+            cell.configureCell(post, img: img)
             return cell
         } else {
             return PostCell()
