@@ -53,7 +53,7 @@ class PostCell: UITableViewCell {
             } else {
                 // make a request via alamofire
                 
-//                
+//
 //                Alamofire.request(.GET, post.imageUrl!).response(completionHandler: {request, response, data, error in
 //                print(error)
 //                    if error == nil {
