@@ -12,6 +12,7 @@ import Firebase
 let URL_BASE = "https://govi-showcase.firebaseio.com"
 
 class DataService {
+    
     static let ds = DataService()
 
     private var _REF_BASE = Firebase(url: URL_BASE)
@@ -37,9 +38,5 @@ class DataService {
         REF_USERS.childByAppendingPath(uid).setValue(user)
     }
     
-    //Description, ImageURL, Likes
-    func createFirebasePost(pid: String, post: Dictionary<String, String>) {
-        REF_POSTS.childByAppendingPath(pid).setValue(post)
-    }
     
 }

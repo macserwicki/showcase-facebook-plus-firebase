@@ -23,6 +23,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     var imagePicker: UIImagePickerController!
     
     var posts = [Post]()
+    var imageSelected = false
    static var imageCache = NSCache()
     
     override func viewWillAppear(animated: Bool) {
@@ -114,7 +115,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         //pop VC?
         imageSelectorImg.image = image
-
+        imageSelected = true
         
     }
 
@@ -125,30 +126,51 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
 
     @IBAction func makePost(sender: AnyObject) {
-        //attach image and post to firebase?
 
-        if imageSelectorImg.image != nil && imageSelectorImg.image != UIImage(named: "camera") && postField.text != "" {
+        if imageSelectorImg.image != nil && postField.text != "" && imageSelected == true {
             
-            if let uploadImage = imageSelectorImg.image {
+            if let uploadImage = imageSelectorImg.image where imageSelected == true {
             let imageData = UIImageJPEGRepresentation(uploadImage, 0.2)!
             let keyData = API_IMAGESHACK_KEY.dataUsingEncoding(NSUTF8StringEncoding)!
             let urlString = "https://post.imageshack.us/upload_api.php"
             let url = NSURL(string: urlString)!
-            //DataService.ds.createFirebasePost(String, post: Dictionary<String, String>)
+           
+                
             let keyJSON = "json".dataUsingEncoding(NSUTF8StringEncoding)!
                 
                 Alamofire.upload(.POST, url, multipartFormData: { multipartFormData in
                     
+                    //
                     // I don't get this part of the course.
+                    // Converting strings to a data format b/c documentation requires it in a non-string format. 
+                    //https://code.google.com/archive/p/imageshackapi/wikis/ImageshackAPI.wiki
+                    //
+                    
                     multipartFormData.appendBodyPart(data: imageData, name: "fileupload", fileName: "image", mimeType: "image/jpg")
                     multipartFormData.appendBodyPart(data: keyData, name: "key")
                     multipartFormData.appendBodyPart(data: keyJSON, name: "format")
                     
                     }) { encodingResult in
+                       
                         switch encodingResult {
-                        case .Success(request: let upload, streamingFromDisk: _, streamFileURL: _):
-                            upload.responseJSON(completionHandler: {request, response, result in
                             
+                        case .Success(let upload, _, _): upload.responseJSON(completionHandler: { result in
+                        
+                            if result.result.error == nil {
+                                
+                                if let info = result.result.value as? Dictionary<String, AnyObject> {
+                                    //do stuff with "info"
+                                    if let links = info["links"] as? Dictionary<String,AnyObject> {
+                                        if let imgLink = links["image_link"] as? String {
+                                            //!! URL 
+                                            print("DID WE GET HERE NOW")
+                                            print(imgLink)
+                                            self.postToFirebase(imgLink)
+                                        }
+                                    }
+                                }
+                                
+                                }
                             
                             })
                         case .Failure(let error):
@@ -162,9 +184,31 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 
                 
             }
+        } else {
+            self.postToFirebase(nil)
         }
     }
     
+    func postToFirebase(imgUrl: String?) {
+        //description, imageUrl, likes
+        
+        var post: Dictionary<String, AnyObject> = [
+        "description": postField.text!,
+        "likes": 0
+        ]
+        if imgUrl != nil {
+            post["imageUrl"] = imgUrl!
+        }
+        
+        //create unique ID & Upload
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        postField.text = ""
+        imageSelectorImg.image = UIImage(named: "camera")
+        tableView.reloadData()
+        
+    }
     
 }
 
