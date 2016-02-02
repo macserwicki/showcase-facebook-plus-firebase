@@ -32,9 +32,14 @@ class DataService {
         return _REF_USERS
     }
     
+    //provider, username
     func createFirebaseUser(uid: String, user: Dictionary<String, String>) {
         REF_USERS.childByAppendingPath(uid).setValue(user)
     }
     
+    //Description, ImageURL, Likes
+    func createFirebasePost(pid: String, post: Dictionary<String, String>) {
+        REF_POSTS.childByAppendingPath(pid).setValue(post)
+    }
     
 }

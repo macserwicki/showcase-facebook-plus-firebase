@@ -8,12 +8,19 @@
 
 import UIKit
 import Firebase
+import Alamofire
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var postField: MaterialDesignTextField!
+    
+    @IBOutlet weak var imageSelectorImg: MaterialDesignImageView!
+    
+    
+    var imagePicker: UIImagePickerController!
     
     var posts = [Post]()
    static var imageCache = NSCache()
@@ -49,8 +56,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         tableView.estimatedRowHeight = 361
         
         // Do any additional setup after loading the view.
@@ -102,8 +109,63 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
 
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        //pop VC?
+        imageSelectorImg.image = image
 
+        
+    }
 
+    @IBAction func selectImage(sender: UITapGestureRecognizer) {
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+        
+    }
+
+    @IBAction func makePost(sender: AnyObject) {
+        //attach image and post to firebase?
+
+        if imageSelectorImg.image != nil && imageSelectorImg.image != UIImage(named: "camera") && postField.text != "" {
+            
+            if let uploadImage = imageSelectorImg.image {
+            let imageData = UIImageJPEGRepresentation(uploadImage, 0.2)!
+            let keyData = API_IMAGESHACK_KEY.dataUsingEncoding(NSUTF8StringEncoding)!
+            let urlString = "https://post.imageshack.us/upload_api.php"
+            let url = NSURL(string: urlString)!
+            //DataService.ds.createFirebasePost(String, post: Dictionary<String, String>)
+            let keyJSON = "json".dataUsingEncoding(NSUTF8StringEncoding)!
+                
+                Alamofire.upload(.POST, url, multipartFormData: { multipartFormData in
+                    
+                    // I don't get this part of the course.
+                    multipartFormData.appendBodyPart(data: imageData, name: "fileupload", fileName: "image", mimeType: "image/jpg")
+                    multipartFormData.appendBodyPart(data: keyData, name: "key")
+                    multipartFormData.appendBodyPart(data: keyJSON, name: "format")
+                    
+                    }) { encodingResult in
+                        switch encodingResult {
+                        case .Success(request: let upload, streamingFromDisk: _, streamFileURL: _):
+                            upload.responseJSON(completionHandler: {request, response, result in
+                            
+                            
+                            })
+                        case .Failure(let error):
+                            print(error)
+                            
+                        }
+                
+                
+                }
+                
+                
+                
+            }
+        }
+    }
+    
+    
 }
 
 
