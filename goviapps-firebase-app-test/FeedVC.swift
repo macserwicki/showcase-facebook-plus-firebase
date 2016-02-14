@@ -24,7 +24,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     var posts = [Post]()
     var imageSelected = false
-   static var imageCache = NSCache()
+    static let imageCache = NSCache()
     
     override func viewWillAppear(animated: Bool) {
         DataService.ds.REF_POSTS.observeEventType(.Value, withBlock: { snapshot in
@@ -76,18 +76,27 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        
-        let post = posts[indexPath.row]
-        print(post.imageUrl)
-
+        //let post = posts[indexPath.row]
+        //print(post.imageUrl)
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as? PostCell {
-          
+            
+            //Canceling request. We need to stop old request from downloading to prevent bugs.
+            cell.request?.cancel()
+            
+            let post = posts[indexPath.row]
+
+            //empty image var
             var img: UIImage?
+            
             if let url = post.imageUrl {
-                img = FeedVC.imageCache.objectForKey(url) as? UIImage
+                if let cacheImg = FeedVC.imageCache.objectForKey(url) as? UIImage {
+                    img = cacheImg
+                }
             }
+            
             cell.configureCell(post, img: img)
+            
             return cell
         } else {
             return PostCell()
@@ -95,10 +104,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
         
     }
-
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //code
-    }
+    
+    
+    
 
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -124,6 +132,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         presentViewController(imagePicker, animated: true, completion: nil)
         
     }
+    
 
     @IBAction func makePost(sender: AnyObject) {
 
@@ -162,9 +171,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                                     //do stuff with "info"
                                     if let links = info["links"] as? Dictionary<String,AnyObject> {
                                         if let imgLink = links["image_link"] as? String {
-                                            //!! URL 
-                                            print("DID WE GET HERE NOW")
-                                            print(imgLink)
+                                            //!! URL
                                             self.postToFirebase(imgLink)
                                         }
                                     }
@@ -185,6 +192,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 
             }
         } else {
+            //present alert 
             self.postToFirebase(nil)
         }
     }

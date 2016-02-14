@@ -23,7 +23,7 @@ let API_IMAGESHACK_KEY = "4CGKUWXY1f190a9ba6c24afd9ba63bd40e19645b"
 
 //Segues
 let SEGUE_LOGGED_IN = "loggedIn"
-
+let SEGUE_IMAGE_DETAIL = "ImageDetail"
 
 //Status Error Codes
 let STATUS_ACCOUNT_NONEXIST = -8
