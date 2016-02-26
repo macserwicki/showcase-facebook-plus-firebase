@@ -173,6 +173,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                                         if let imgLink = links["image_link"] as? String {
                                             //!! URL
                                             self.postToFirebase(imgLink)
+                                            
+                                            //clear 
+                                            
+                                            self.postField.text = ""
+                                            
                                         }
                                     }
                                 }
@@ -192,8 +197,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 
             }
         } else {
+            print("Img or Text Missing")
             //present alert 
-            self.postToFirebase(nil)
+            //self.postToFirebase(nil)
         }
     }
     
