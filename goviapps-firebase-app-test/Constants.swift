@@ -7,7 +7,7 @@
 //
 
 
-//global constants
+//Global constants
 import Foundation
 import UIKit
 
