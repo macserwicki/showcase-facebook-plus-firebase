@@ -18,7 +18,6 @@ let SHADOW_COLOR: CGFloat = 151 / 255.0
 let KEY_UID = "uid"
 
 //Devslopes Guide Use Only API - 12DJKPSU5fc3afbd01b1630cc718cae3043220f3
-//My Personal API Trial - 4CGKUWXY1f190a9ba6c24afd9ba63bd40e19645b
 
 //APIs
 let API_IMAGESHACK_KEY = "12DJKPSU5fc3afbd01b1630cc718cae3043220f3"
