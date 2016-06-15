@@ -5,6 +5,8 @@
 //  Created by Maciej Serwicki on 1/19/16.
 //  Copyright © 2016 Maciej Serwicki. All rights reserved.
 //
+//Devslopes Guide Use Only API - 12DJKPSU5fc3afbd01b1630cc718cae3043220f3
+
 
 
 //Global constants
@@ -16,8 +18,6 @@ let SHADOW_COLOR: CGFloat = 151 / 255.0
 
 //Keys
 let KEY_UID = "uid"
-
-//Devslopes Guide Use Only API - 12DJKPSU5fc3afbd01b1630cc718cae3043220f3
 
 //APIs
 let API_IMAGESHACK_KEY = "12DJKPSU5fc3afbd01b1630cc718cae3043220f3"
